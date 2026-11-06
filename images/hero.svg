@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="hero-title">
+  <title id="hero-title">Illustration of a brown leather shoe and a green handbag</title>
+  <circle cx="300" cy="200" r="175" fill="#BBF7D0" opacity="0.55"/>
+  <ellipse cx="300" cy="312" rx="240" ry="12" fill="#14231A" opacity="0.12"/>
+
+  <!-- Shoe -->
+  <g transform="translate(20 110) scale(0.9)">
+    <path d="M60 180 C58 140 74 96 118 86 C146 80 166 104 196 116 C236 132 268 142 302 152 C334 162 352 172 352 186 L60 186 Z" fill="#8B5A2B"/>
+    <path d="M96 120 C100 108 110 100 122 96" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="5" stroke-linecap="round"/>
+    <path d="M150 118 L170 132 M166 110 L186 124 M182 102 L202 116" stroke="#E9D8C4" stroke-width="4" stroke-linecap="round"/>
+    <rect x="48" y="184" width="312" height="18" rx="9" fill="#2B1D14"/>
+  </g>
+
+  <!-- Handbag -->
+  <g transform="translate(340 80) scale(0.8)">
+    <path d="M150 150 Q150 66 200 66 Q250 66 250 150" fill="none" stroke="#2B1D14" stroke-width="10"/>
+    <rect x="115" y="140" width="170" height="125" rx="16" fill="#15803D"/>
+    <path d="M115 150 H285 V196 Q200 218 115 196 Z" fill="#166534"/>
+    <rect x="188" y="190" width="24" height="18" rx="4" fill="#E8A33D"/>
+  </g>
+</svg>
