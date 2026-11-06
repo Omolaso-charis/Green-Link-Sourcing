@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         refEl.textContent = reference;
         confirmation.hidden = false;
         confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.dispatchEvent(new CustomEvent('quote-submitted', { detail: { reference, email: data.get('email'), product: data.get('product'), service: data.get('service') } }));
       } catch (err) {
         status.textContent = 'Sorry, we could not send your request. Please try again or WhatsApp us.';
         status.classList.add('error');

@@ -18,7 +18,7 @@ Designs and IP: the buyer owns a custom design. We do not produce branded replic
 
 Responses: within two working days, Lagos time. For faster questions, WhatsApp: https://wa.me/234XXXXXXXXXX
 
-Accounts: no account is needed to send a quote request or chat question.
+Accounts: no account is needed to send a quote request or chat question. Customers sign up on the My Account page to track their orders.
 
 This is a demo website for educational purposes; contact details are fictional.`;
 

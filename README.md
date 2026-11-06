@@ -20,9 +20,16 @@ Search the project for `234XXXXXXXXXX` to find every WhatsApp link.
 4. In **Forms**, add an email notification for the `quote` form.
 5. Optional: set up an auto-reply for form submissions that confirms the two-working-day response time.
 
+## Buyer account (prototype)
+
+- `account.html` and `js/account.js` show sign-up, log-in, a quote history and an example order tracker.
+- Sign-in is simulated and details stay in the browser (localStorage). No password is collected.
+- Before launch, replace this with a secure sign-in service (for example, Supabase Auth) and store orders in a database.
+
 ## Not in this MVP (planned)
 
-- Customer accounts and order tracking (registration with consent at sign-up)
+- Live customer accounts with passwords and email verification
+- Real order tracking, linked to your order records
 - Product gallery
 - Sample upload for shoes and bags
 - Shared header and footer templates

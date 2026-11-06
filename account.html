@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account | Green Link Sourcing</title>
+  <meta name="description" content="Sign up to request quotes and track your shoe and bag orders with Green Link Sourcing.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo" aria-label="Green Link Sourcing home">
+      <span class="logo-mark" aria-hidden="true">GL</span>
+      <span class="logo-text">Green Link <small>Sourcing</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav class="main-nav" id="main-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="faq.html">FAQ</a>
+      <a href="account.html" class="nav-account">Sign in</a>
+      <a href="quote.html" class="btn btn-primary btn-small">Request a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Buyer account</p>
+      <h1>Request quotes and track your orders</h1>
+      <p class="lead">Create an account to follow every order from quote to delivery at Lagos port.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Signed-out view -->
+      <div id="auth-view">
+        <div class="narrow">
+          <div class="demo-banner">
+            <p><strong>Prototype:</strong> sign-in is simulated for this demo. No password is collected or stored. A live site needs a secure sign-in service before real accounts are created.</p>
+          </div>
+
+          <div class="quote-form">
+            <div class="tabs" role="tablist" aria-label="Account options">
+              <button type="button" class="tab" role="tab" id="tab-signup" aria-selected="true" aria-controls="signup-form">Sign up</button>
+              <button type="button" class="tab" role="tab" id="tab-login" aria-selected="false" aria-controls="login-form">Log in</button>
+            </div>
+
+            <form id="signup-form" role="tabpanel" aria-labelledby="tab-signup">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="su-name">Full name *</label>
+                  <input id="su-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="su-business">Business name</label>
+                  <input id="su-business" name="business" type="text" autocomplete="organization">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="su-email">Email *</label>
+                  <input id="su-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="su-whatsapp">WhatsApp number *</label>
+                  <input id="su-whatsapp" name="whatsapp" type="tel" placeholder="+234 800 000 0000" required>
+                </div>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <label>
+                  <input type="checkbox" name="consent" required>
+                  I consent to Green Link Sourcing storing my name, email and WhatsApp number to manage my quotes and orders. I can ask for my details to be removed at any time.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Create account</button>
+              <p class="form-message" id="signup-message" role="status"></p>
+            </form>
+
+            <form id="login-form" role="tabpanel" aria-labelledby="tab-login" hidden>
+              <div class="form-group">
+                <label for="li-email">Email *</label>
+                <input id="li-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Log in</button>
+              <p class="form-message" id="login-message" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signed-in view -->
+      <div id="dashboard-view" hidden>
+        <div class="dash-head">
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h2 id="dash-name">Your account</h2>
+            <p id="dash-business"></p>
+          </div>
+          <div class="dash-actions">
+            <a href="quote.html" class="btn btn-primary">Request a Quote</a>
+            <button type="button" class="btn btn-outline" id="signout">Sign out</button>
+          </div>
+        </div>
+
+        <div class="account-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Track an order</h3>
+              <span class="badge-demo">Example order</span>
+            </div>
+            <p>Order GL-DEMO-1024 · Custom order · 300 pairs</p>
+            <ol class="timeline" aria-label="Order progress">
+              <li class="done">Quote sent</li>
+              <li class="done">Deposit received (50%)</li>
+              <li class="done">Samples approved</li>
+              <li class="current" aria-current="step">In production</li>
+              <li>Pre-shipment inspection</li>
+              <li>Shipped to Lagos port</li>
+              <li>Cleared and delivered</li>
+            </ol>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Your quote requests</h3>
+            </div>
+            <ul class="quote-list" id="quote-list"></ul>
+            <p class="empty" id="quote-empty">No quote requests yet. Request one and it will appear here.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Need a new quote?</h2>
+        <p>We reply within two working days, Lagos time.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="quote.html" class="btn btn-light">Request a Quote</a>
+        <a href="https://wa.me/234XXXXXXXXXX" class="btn btn-ghost" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-brand">Green Link Sourcing</p>
+      <p>We help Nigerian creative business owners source quality shoes and bags from China.</p>
+    </div>
+    <div>
+      <p class="footer-heading">Contact</p>
+      <p>Email: <a href="mailto:sample@greenlink-demo.com">sample@greenlink-demo.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/234XXXXXXXXXX" target="_blank" rel="noopener">Chat with us</a></p>
+      <p>Office: 88 Example Road, Tianhe District, Guangzhou (sample address)</p>
+    </div>
+    <div>
+      <p class="footer-heading">Explore</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="quote.html">Request a Quote</a>
+        <a href="account.html">My Account</a>
+      </div>
+    </div>
+  </div>
+  <p class="demo-note">Demo website for educational purposes. All contact details and examples are fictional.</p>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>
