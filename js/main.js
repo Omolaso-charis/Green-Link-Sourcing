@@ -129,6 +129,24 @@ document.addEventListener('DOMContentLoaded', () => {
   buildChatWidget();
 });
 
+const CHAT_FAQ_URL = '/data/chat-faq.json';
+const CHAT_DEFAULT_FALLBACK = 'I can only answer questions about our services, minimum orders, payment, delivery and accounts. For prices, timelines or anything else, please request a quote or WhatsApp us.';
+
+// Returns the answer for the first FAQ entry whose keyword appears as a whole word, or null.
+function answerFromFaq(question, faq) {
+  const text = String(question).toLowerCase();
+  const entries = faq && Array.isArray(faq.entries) ? faq.entries : [];
+  for (const entry of entries) {
+    const keywords = Array.isArray(entry.keywords) ? entry.keywords : [];
+    const matched = keywords.some(word => {
+      const escaped = String(word).toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return new RegExp('\\b' + escaped + '\\b').test(text);
+    });
+    if (matched) return entry.answer;
+  }
+  return null;
+}
+
 function buildChatWidget() {
   const toggle = document.createElement('button');
   toggle.className = 'chat-toggle';
@@ -159,13 +177,26 @@ function buildChatWidget() {
   const messagesEl = panel.querySelector('.chat-messages');
   const form = panel.querySelector('.chat-form');
   const input = form.querySelector('input');
-  const sendBtn = form.querySelector('button');
-  const history = [];
 
-  function addMessage(text, who) {
+  // The FAQ file is loaded once. If it fails to load, the fallback reply is used.
+  let faq = null;
+  fetch(CHAT_FAQ_URL)
+    .then(response => (response.ok ? response.json() : null))
+    .then(data => { faq = data; })
+    .catch(() => { faq = null; });
+
+  function addMessage(text, who, linkUrl, linkLabel) {
     const div = document.createElement('div');
     div.className = 'msg ' + who;
     div.textContent = text;
+    if (linkUrl) {
+      const link = document.createElement('a');
+      link.href = linkUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = ' ' + (linkLabel || 'Open link');
+      div.appendChild(link);
+    }
     messagesEl.appendChild(div);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
@@ -182,31 +213,21 @@ function buildChatWidget() {
   panel.querySelector('.chat-close').addEventListener('click', () => setOpen(false));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) setOpen(false); });
 
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
     const text = input.value.trim();
     if (!text) return;
 
     addMessage(text, 'user');
-    history.push({ role: 'user', content: text });
     input.value = '';
-    sendBtn.disabled = true;
 
-    try {
-      const response = await fetch('/.netlify/functions/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history.slice(-10) })
-      });
-      const data = await response.json();
-      const reply = data.reply || 'Sorry, something went wrong. Please use the quote form.';
-      addMessage(reply, 'bot');
-      history.push({ role: 'assistant', content: reply });
-    } catch (err) {
-      addMessage('Sorry, the chat is unavailable right now. Please use the quote form or WhatsApp us.', 'bot');
-    } finally {
-      sendBtn.disabled = false;
-      input.focus();
+    const answer = answerFromFaq(text, faq);
+    if (answer) {
+      addMessage(answer, 'bot');
+    } else {
+      const fallback = (faq && faq.fallback) || CHAT_DEFAULT_FALLBACK;
+      addMessage(fallback, 'bot', WHATSAPP_URL, 'WhatsApp us');
     }
+    input.focus();
   });
 }

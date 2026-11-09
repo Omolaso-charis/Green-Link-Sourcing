@@ -1,0 +1,98 @@
+{
+  "entries": [
+    {
+      "keywords": [
+        "minimum",
+        "moq",
+        "how many",
+        "smallest order"
+      ],
+      "answer": "Minimums apply per style: Custom orders 300 pairs or 200 bags; Private label 50 per style; Ready-to-brand catalogue 20 per style. Size and colour breakdowns may apply."
+    },
+    {
+      "keywords": [
+        "service",
+        "services",
+        "offer",
+        "private label",
+        "catalogue",
+        "catalog"
+      ],
+      "answer": "We offer three ways to order: Custom orders (our main focus), Private label, and a Ready-to-brand catalogue. Request a quote to start."
+    },
+    {
+      "keywords": [
+        "payment",
+        "pay",
+        "deposit",
+        "naira",
+        "exchange rate",
+        "currency",
+        "usd"
+      ],
+      "answer": "Quotes are in USD. Payment is 50% deposit to start production and 50% before shipment. Naira payments use the exchange rate on the day of payment, and the rate source is stated on the quote."
+    },
+    {
+      "keywords": [
+        "deliver",
+        "delivery",
+        "shipping",
+        "shipment",
+        "customs",
+        "duty",
+        "duties",
+        "port"
+      ],
+      "answer": "Goods are delivered to Lagos port (CIF Lagos). The buyer handles customs clearance and pays duties and levies. Door delivery in Lagos is a paid option. We deliver to Lagos only for now."
+    },
+    {
+      "keywords": [
+        "sample",
+        "samples",
+        "prototype"
+      ],
+      "answer": "Samples and prototypes are available. Fee and credit terms are shared on request. Please request a quote or WhatsApp us for details."
+    },
+    {
+      "keywords": [
+        "ownership",
+        "own my design",
+        "copy",
+        "replica",
+        "intellectual",
+        "design rights"
+      ],
+      "answer": "You own your custom design. We do not produce branded replicas, and we only work with original designs or brands you have the right to use."
+    },
+    {
+      "keywords": [
+        "account",
+        "sign up",
+        "signup",
+        "register",
+        "log in",
+        "login",
+        "track"
+      ],
+      "answer": "No account is needed to send a quote request or ask a question. Sign up on the My Account page to track your orders."
+    },
+    {
+      "keywords": [
+        "response time",
+        "reply",
+        "respond"
+      ],
+      "answer": "We reply within two working days, Lagos time. For faster questions, WhatsApp us."
+    },
+    {
+      "keywords": [
+        "contact",
+        "email",
+        "whatsapp",
+        "phone"
+      ],
+      "answer": "Email sample@greenlink-demo.com or WhatsApp us. For a price or timeline, please request a quote."
+    }
+  ],
+  "fallback": "I can only answer questions about our services, minimum orders, payment, delivery and accounts. For prices, timelines or anything else, please request a quote or WhatsApp us."
+}

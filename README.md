@@ -26,6 +26,13 @@ Search the project for `234XXXXXXXXXX` to find every WhatsApp link.
 - Sign-in is simulated and details stay in the browser (localStorage). No password is collected.
 - Before launch, replace this with a secure sign-in service (for example, Supabase Auth) and store orders in a database.
 
+## Campaign page
+
+- `campaign.html` is the page for social media posts. Its styles are in `css/campaign.css`, and its scripts are in `js/campaign.js`.
+- Share it with campaign tags, for example `https://greenlinksourcing.netlify.app/campaign.html?utm_source=instagram&utm_campaign=lagos-qa`. The form records the source, medium and campaign, so you can see which post brought each lead.
+- Enable form notifications for the `campaign-quote` form in Netlify, separate from the `quote` form.
+- Replace `234XXXXXXXXXX` in `campaign.html` and `js/campaign.js` as well.
+
 ## Not in this MVP (planned)
 
 - Live customer accounts with passwords and email verification
